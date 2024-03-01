@@ -1,4 +1,5 @@
 
+
 def reflexive(rel):
     for i in range(len(rel)):
         if rel[i][i] == 1:
@@ -66,8 +67,6 @@ def rel_strict(rel):
 
     return strict_rel           
             
-
-
 def min(strict_rel):
 
     min_elements = []
@@ -99,25 +98,22 @@ def converse(rel):
             if converse_rel[i][j] != converse_rel[j][i]:
                 converse_rel[i][j], converse_rel[j][i] = converse_rel[j][i], converse_rel[i][j]
 
-    return converse_rel
+    return f"Converse: {converse_rel}"
 
 def complementary_rel(rel):
     complementary = [[element for element in row] for row in rel]
 
-   
     for i in range(len(complementary)):
         for j in range(len(complementary)):
-            complementary[i][j] = 1 - complementary[i][j]  # Direct modification
+            complementary[i][j] = 1 - complementary[i][j]  
 
-    return complementary
+    return  f"Complementary: {complementary}"
 
-relation =  [[1, 1, 1, 1, 0],
-             [1, 1, 0, 0, 1],
-             [1, 0, 1, 0, 1],
-             [1, 0, 0, 1, 1],
-             [0, 1, 1, 1, 1]]
-
-strict_rel = rel_strict(relation) 
+relation = [[1, 0, 0, 1, 0],
+            [1, 1, 1, 0, 0],
+            [1, 1, 1, 1, 1],
+            [1, 0, 0, 1, 1],
+            [1, 1, 0, 1, 1]]
 
 print(reflexive(relation))
 print(antireflexive(relation))
@@ -129,17 +125,13 @@ print(transitive(relation))
 print(the_worst(relation))
 print(the_best(relation))
 
-strict_rel = rel_strict(relation)
-print(strict_rel)
-
+strict_rel = rel_strict(relation) 
 print(min(strict_rel))
 print(max(strict_rel))
 
-converse_rel = converse(relation)
-print(converse_rel)
+print(converse(relation))
 
-complementary_rel = complementary_rel(relation)
-print(complementary_rel)
+print(complementary_rel(relation))
 
 
 
